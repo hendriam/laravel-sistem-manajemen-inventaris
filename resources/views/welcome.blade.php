@@ -6,10 +6,6 @@
 
         <title>{{ $title ?? 'Inventaris App' }}</title>
 
-        <!-- Fonts -->
-        <link rel="preconnect" href="https://fonts.bunny.net">
-        <link href="https://fonts.bunny.net/css?family=instrument-sans:400,500,600" rel="stylesheet" />
-
         <!-- Styles / Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/flowbite.min.js'])
     </head>
@@ -454,7 +450,6 @@
         </nav>
 
         <!-- Sidebar -->
-
         <aside
             class="fixed top-0 left-0 z-40 w-64 h-screen pt-14 transition-transform -translate-x-full bg-white border-r border-gray-200 md:translate-x-0 dark:bg-gray-800 dark:border-gray-700"
             aria-label="Sidenav"
