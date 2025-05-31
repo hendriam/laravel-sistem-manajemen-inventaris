@@ -4,12 +4,12 @@
     </h1>
     <form class="space-y-4 md:space-y-6" action="#">
         <div>
-            <x-ui.label for="email">Your email</x-ui.label>
-            <x-ui.input type="email" name="email" id="email" wire:model="nama" placeholder="name@company.com" required="" />
+            <x-ui.label for="username">Username</x-ui.label>
+            <x-ui.input type="text" name="username" id="username" wire:model="username" placeholder="johndoe" required="" />
         </div>
         <div>
             <x-ui.label for="password">Password</x-ui.label>
-            <x-ui.input type="password" name="password" id="password" wire:model="nama" placeholder="••••••••" required="" />
+            <x-ui.input type="password" name="password" id="password" wire:model="password" placeholder="••••••••" required="" />
         </div>
         <div class="flex items-center justify-between">
             <div class="flex items-start">
