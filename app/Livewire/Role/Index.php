@@ -16,18 +16,12 @@ class Index extends Component
         $this->roles = Role::all();
     }
 
-    public function save()
-    {
-        $this->validate(['name' => 'required|unique:roles,name']);
-        Role::create(['name' => $this->name]);
-        $this->reset('name');
-        $this->roles = Role::all();
-    }
-
     public function delete($id)
     {
         Role::findOrFail($id)->delete();
         $this->roles = Role::all();
+
+        session()->flash('success', 'Role berhasil dihapus!');
     }
 
     public function getTableDataProperty()
