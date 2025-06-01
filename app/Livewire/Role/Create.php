@@ -28,7 +28,8 @@ class Create extends Component
         $this->reset('name');
         $this->reset('description');
 
-        return redirect()->to('/roles');
+        session()->flash('success', 'Role baru berhasil ditambahkan!');
+        return redirect()->route('roles.index');
     }
 
     public function render()
