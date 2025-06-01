@@ -3,7 +3,7 @@
 
     <x-ui.card>
         <div class="flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-4 justify-between">
-            <h2 class=" text-xl font-bold text-gray-900 dark:text-white">Tambah role baru</h2>
+            <h2 class=" text-xl font-bold text-gray-900 dark:text-white">Edit role</h2>
             <a href="{{ route('roles.index') }}">
                 <x-ui.button
                     type="button"
@@ -17,7 +17,7 @@
             </a>
         </div>
         <x-ui.hr />
-        <form wire:submit.prevent="save" class="grid gap-4">
+        <form wire:submit.prevent="update" class="grid gap-4">
             <div class="w-full lg:w-2xl">
                 <x-ui.label for="username">Nama Role</x-ui.label>
                 <x-ui.input type="text" name="name" id="name" wire:model="name" class="w-full" placeholder="Admin" required="" />
