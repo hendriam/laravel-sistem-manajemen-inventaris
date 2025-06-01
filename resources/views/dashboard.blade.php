@@ -1,3 +1,3 @@
 <x-layouts.app :title="__('Dashboard')">
-	<h1>Dashboard</h1>
+    <h2 class="text-xl font-bold">Dashboard</h2>
 </x-layouts.app>
