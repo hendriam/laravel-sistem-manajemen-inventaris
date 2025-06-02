@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ $title ?? 'Inventaris App' }}</title>
+    <title>{{ $title ?? config('app.name') }}</title>
     <!-- Styles / Scripts -->
     @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/js/flowbite.min.js'])
     @livewireStyles
