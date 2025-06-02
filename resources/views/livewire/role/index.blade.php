@@ -40,6 +40,7 @@
                     <td class="px-4 py-1 ">
                         <x-ui.button-actions 
                             :urlAction="route('roles.edit', $role->id)"
+                            :assignAction="route('roles.assign-permission', $role->id)"
                             :editAction="'edit(' . $role->id . ')'"
                             :deleteAction="'delete(' . $role->id . ')'"
                         />    
