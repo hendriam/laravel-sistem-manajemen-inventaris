@@ -12,7 +12,7 @@
         @endif
         <div class="mb-4 flex flex-col md:flex-row space-y-3 md:space-y-0 md:space-x-4 justify-between">
             <div class="w-full md:w-1/2">
-                <x-ui.input-search type="text" name="search" id="search" value placeholder="Cari nama role.." />
+                <x-ui.input-search placeholder="Cari nama permission..." />
             </div>
             <a href="{{ route('permissions.create') }}">
                 <x-ui.button
@@ -51,9 +51,9 @@
         <div class="mt-4 flex justify-between items-center">
             <span class="text-sm font-normal text-gray-500 dark:text-gray-400">
                 Showing
-                <span class="font-semibold text-gray-900 dark:text-white">1-10</span>
+                <span class="font-semibold text-gray-900 dark:text-white">{{ $permissions->firstItem() }} - {{ $permissions->lastItem() }}</span>
                 of
-                <span class="font-semibold text-gray-900 dark:text-white">1000</span>
+                <span class="font-semibold text-gray-900 dark:text-white">{{ $permissions->total() }}</span>
             </span>
             <x-ui.pagination :paginator="$permissions" />
         </div>

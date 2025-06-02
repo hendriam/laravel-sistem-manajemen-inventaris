@@ -1,4 +1,4 @@
-@props(['type' => 'text', 'name', 'value', 'placeholder' => ''])
+@props([ 'model' => 'search', 'placeholder' => ''])
 
 <form class="flex items-center">
     <label for="simple-search" class="sr-only">Search</label>
@@ -13,12 +13,18 @@
             </svg>
         </div>
         <input
-            type="{{ $type }}" 
-            name="{{ $name }}" 
-            id="{{ $name }}" 
-            wire:model.live="{{ $value }}"
+            type="text" 
+            wire:model.live="{{ $model }}"
             class="block w-full p-2 pl-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-primary-500 focus:border-primary-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
             placeholder="{{ $placeholder }}"
         />
+
+        <!-- Loading Spinner -->
+        <div wire:loading wire:target="{{ $model }}" class="absolute top-2.5 right-3">
+            <svg class="w-4 h-4 animate-spin text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"/>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z"/>
+            </svg>
+        </div>
     </div>
 </form>
