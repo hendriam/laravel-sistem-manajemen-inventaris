@@ -17,7 +17,7 @@
                         @endif
                     </th>
                 @endforeach
-                <th class="px-4 py-3 text-gray-700">Aksi</th>
+                <th class="px-4 py-3 text-gray-700 w-32">Aksi</th>
             </tr>
         </thead>
         <tbody>
