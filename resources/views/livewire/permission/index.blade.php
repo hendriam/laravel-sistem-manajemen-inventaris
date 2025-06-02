@@ -34,10 +34,10 @@
         >
             @foreach($permissions as $permission)
                 <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 border-gray-200">
-                    <th class="px-4 py-1 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $permission->name }}</th>
-                    <td class="px-4 py-1 ">{{ $permission->description ?? '-' }}</td>
-                    <td class="px-4 py-1 ">{{ $permission->created_at->format('d-m-Y') }}</td>
-                    <td class="px-4 py-1 ">
+                    <th class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $permission->name }}</th>
+                    <td class="px-4 py-2 ">{{ $permission->description ?? '-' }}</td>
+                    <td class="px-4 py-2 ">{{ $permission->created_at->format('d-m-Y') }}</td>
+                    <td class="px-4 py-2 ">
                         <x-ui.button-actions 
                             :urlAction="route('permissions.edit', $permission->id)"
                             :editAction="'edit(' . $permission->id . ')'"
