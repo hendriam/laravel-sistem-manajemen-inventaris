@@ -6,6 +6,9 @@ use App\Livewire\Auth\Login;
 use App\Livewire\Role\Index as RoleIndex;
 use App\Livewire\Role\Create as RoleCreate;
 use App\Livewire\Role\Edit as RoleEdit;
+use App\Livewire\Permission\Index as PermissionIndex;
+use App\Livewire\Permission\Create as PermissionCreate;
+use App\Livewire\Permission\Edit as PermissionEdit;
 
 Route::get('/', Login::class)->name('login');
 Route::get('forgot-password', ForgotPassword::class)->name('forgot-password');
@@ -14,6 +17,14 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard'); 
 
-Route::get('/roles', RoleIndex::class)->name('roles.index');
-Route::get('/roles/create', RoleCreate::class)->name('roles.create');
-Route::get('/roles/{role}/edit', RoleEdit::class)->name('roles.edit');
+Route::prefix('roles')->name('roles.')->group(function () {
+    Route::get('/', RoleIndex::class)->name('index');
+    Route::get('/create', RoleCreate::class)->name('create');
+    Route::get('/{role}/edit', RoleEdit::class)->name('edit');
+});
+
+Route::prefix('permissions')->name('permissions.')->group(function () {
+    Route::get('/', PermissionIndex::class)->name('index');
+    Route::get('/create', PermissionCreate::class)->name('create');
+    Route::get('/{permission}/edit', PermissionEdit::class)->name('edit');
+});
