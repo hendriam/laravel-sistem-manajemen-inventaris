@@ -7,12 +7,13 @@
     'deleteLabel' => 'Delete',
 ])
 
-<div class="flex gap-2">
+@hasAnyPermission(['delete-role','delete-permission'])
+<div class="flex space-x-2">
     @if ($editAction)
         <a 
             href="{{ $urlAction }}"
             wire:click="{{ $editAction }}"
-            class="flex items-center justify-center focus:outline-none hover:cursor-pointer text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-3 py-2 me-2 mb-2 dark:focus:ring-yellow-900"
+            class="flex items-center justify-center focus:outline-none hover:cursor-pointer text-white bg-yellow-400 hover:bg-yellow-500 focus:ring-4 focus:ring-yellow-300 font-medium rounded-lg text-sm px-3 py-2 dark:focus:ring-yellow-900"
         >
             <svg class="w-4 h-4 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                 <path fill-rule="evenodd" d="M11.32 6.176H5c-1.105 0-2 .949-2 2.118v10.588C3 20.052 3.895 21 5 21h11c1.105 0 2-.948 2-2.118v-7.75l-3.914 4.144A2.46 2.46 0 0 1 12.81 16l-2.681.568c-1.75.37-3.292-1.263-2.942-3.115l.536-2.839c.097-.512.335-.983.684-1.352l2.914-3.086Z" clip-rule="evenodd"/>
@@ -24,7 +25,7 @@
     @if ($assignAction)
         <a 
             href="{{ $assignAction }}"
-            class="flex items-center justify-center focus:outline-none hover:cursor-pointer text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-3 py-2 me-2 mb-2 dark:focus:ring-purple-900"
+            class="flex items-center justify-center focus:outline-none hover:cursor-pointer text-white bg-purple-700 hover:bg-purple-800 focus:ring-4 focus:ring-purple-300 font-medium rounded-lg text-sm px-3 py-2 dark:focus:ring-purple-900"
         >
             <svg class="w-4 h-4 mr-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 24 24">
                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.213 9.787a3.391 3.391 0 0 0-4.795 0l-3.425 3.426a3.39 3.39 0 0 0 4.795 4.794l.321-.304m-.321-4.49a3.39 3.39 0 0 0 4.795 0l3.424-3.426a3.39 3.39 0 0 0-4.794-4.795l-1.028.961"/>
@@ -38,7 +39,7 @@
             wire:click="{{ $deleteAction }}"
             wire:loading.attr="disabled"
             wire:target="{{ $deleteAction }}"
-            class="flex items-center justify-center focus:outline-none hover:cursor-pointer text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 me-2 mb-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
+            class="flex items-center justify-center focus:outline-none hover:cursor-pointer text-white bg-red-700 hover:bg-red-800 focus:ring-4 focus:ring-red-300 font-medium rounded-lg text-sm px-3 py-2 dark:bg-red-600 dark:hover:bg-red-700 dark:focus:ring-red-900"
         > 
             <span wire:loading="{{ $deleteAction }}" wire:target="{{ $deleteAction }}">
                 <svg aria-hidden="true" role="status" class="w-4 h-4 mr-1 text-white animate-spin" viewBox="0 0 100 101" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
@@ -56,3 +57,4 @@
         </button>
     @endif
 </div>
+@endhasAnyPermission

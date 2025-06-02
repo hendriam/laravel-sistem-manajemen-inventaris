@@ -36,6 +36,7 @@
 			
 		</ul>
 		<ul class="pt-2 mt-2 space-y-2 border-t border-gray-200 dark:border-gray-700">
+			@hasPermission('read-role')
 			<li>
 				<a href="{{ route('roles.index') }}" class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->routeIs('roles.*') ? 'bg-gray-100 dark:bg-gray-700' : '' }} group">
 					<svg
@@ -51,6 +52,8 @@
 					<span class="ml-3">Role</span>
 				</a>
 			</li>
+			@endhasPermission
+			@hasPermission('read-permission')
 			<li>
 				<a href="{{ route('permissions.index') }}" class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->routeIs('permissions.*') ? 'bg-gray-100 dark:bg-gray-700' : '' }} group">
 					<svg
@@ -66,6 +69,7 @@
 					<span class="ml-3">Permission</span>
 				</a>
 			</li>
+			@endhasPermission
 			<li>
 				<button
 					type="button"

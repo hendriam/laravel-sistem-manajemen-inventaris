@@ -14,6 +14,8 @@
             <div class="w-full md:w-1/2">
                 <x-ui.input-search placeholder="Cari nama permission..." />
             </div>
+
+			@hasPermission('create-permission')
             <a href="{{ route('permissions.create') }}">
                 <x-ui.button
                     type="button"
@@ -25,6 +27,8 @@
                     Tambah Permission
                 </x-ui.button>
             </a>
+			@endhasPermission
+
         </div>
         <x-ui.table :data="$permissions" :columns="[
             ['label' => 'Nama Permission', 'field' => 'name'],
