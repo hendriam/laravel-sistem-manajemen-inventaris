@@ -4,42 +4,44 @@ namespace App\Livewire\Role;
 
 use Livewire\Component;
 use App\Models\Role;
+use Livewire\WithPagination;
 
 class Index extends Component
 {
-    public $name;
-    public $description;
-    public $roles;
+    use WithPagination;
+
+    public string $search = '';
+    public string $sortField = 'name';
+    public string $sortDirection = 'asc';
     
-    public function mount()
+    protected $queryString = ['search', 'sortField', 'sortDirection'];
+
+    public function updatingSearch()
     {
-        $this->roles = Role::all();
+        $this->resetPage();
+    }
+
+    public function sortBy($field)
+    {
+        $this->sortDirection = $this->sortField === $field
+            ? ($this->sortDirection === 'asc' ? 'desc' : 'asc')
+            : 'asc';
+
+        $this->sortField = $field;
     }
 
     public function delete($id)
     {
         Role::findOrFail($id)->delete();
-        $this->roles = Role::all();
-
-        session()->flash('success', 'Role berhasil dihapus!');
-    }
-
-    public function getTableDataProperty()
-    {
-        return $this->roles->map(function ($role, $index) {
-            return [
-                'data' => [
-                    $index + 1,
-                    $role->name,
-                    $role->description ?: '-',
-                ],
-                'actions' => view('components.ui.actions', ['id' => $role->id])->render(),
-            ];
-        });
+        session()->flash('success', 'Role berhasil dihapus.');
     }
 
     public function render()
     {
-        return view('livewire.role.index');
+        $roles = Role::where('name', 'like', '%' . $this->search . '%')
+            ->orderBy($this->sortField, $this->sortDirection)
+            ->paginate(10);
+
+        return view('livewire.role.index', compact('roles'));
     }
 }
