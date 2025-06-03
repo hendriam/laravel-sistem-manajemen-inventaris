@@ -14,6 +14,8 @@ use App\Livewire\Role\AssignPermission;
 use App\Livewire\Permission\Index as PermissionIndex;
 use App\Livewire\Permission\Create as PermissionCreate;
 use App\Livewire\Permission\Edit as PermissionEdit;
+use App\Livewire\Profile\Show as ProfileShow;
+use App\Livewire\Profile\Edit as ProfileEdit;
 
 Route::get('/', Login::class)->name('login');
 Route::get('forgot-password', ForgotPassword::class)->name('forgot-password');
@@ -24,6 +26,11 @@ Route::middleware(['auth'])->group(function () {
     })->name('dashboard'); 
 
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');    
+
+    Route::prefix('profile')->name('profile.')->group(function () {
+        Route::get('/show', ProfileShow::class)->name('show')->middleware('permission:profile-show');
+        Route::get('/edit', ProfileEdit::class)->name('edit')->middleware('permission:profile-edit');
+    });
 
     Route::prefix('users')->name('users.')->group(function () {
         Route::get('/', UserIndex::class)->name('index')->middleware('permission:read-user');
