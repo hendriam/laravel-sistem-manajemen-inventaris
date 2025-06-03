@@ -25,12 +25,12 @@ class RolePermissionSeeder extends Seeder
 
         // Operator hanya boleh manage aset
         $operator->permissions()->sync(
-            $permissions->filter(fn ($p) => str_contains($p->name, 'asset'))->pluck('id')
+            $permissions->filter(fn ($p) => str_contains($p->name, 'profile'))->pluck('id')
         );
 
         // Viewer hanya boleh read
         $viewer->permissions()->sync(
-            $permissions->filter(fn ($p) => str_starts_with($p->name, 'read'))->pluck('id')
+            $permissions->filter(fn ($p) => str_starts_with($p->name, 'profile'))->pluck('id')
         );
     }
 }
