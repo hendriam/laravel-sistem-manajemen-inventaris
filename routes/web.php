@@ -4,6 +4,9 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LogoutController;
 use App\Livewire\Auth\ForgotPassword;
 use App\Livewire\Auth\Login;
+use App\Livewire\User\Index as UserIndex;
+use App\Livewire\User\Create as UserCreate;
+use App\Livewire\User\Edit as UserEdit;
 use App\Livewire\Role\Index as RoleIndex;
 use App\Livewire\Role\Create as RoleCreate;
 use App\Livewire\Role\Edit as RoleEdit;
@@ -21,6 +24,12 @@ Route::middleware(['auth'])->group(function () {
     })->name('dashboard'); 
 
     Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');    
+
+    Route::prefix('users')->name('users.')->group(function () {
+        Route::get('/', UserIndex::class)->name('index')->middleware('permission:read-user');
+        Route::get('/create', UserCreate::class)->name('create')->middleware('permission:create-user');
+        Route::get('/{user}/edit', UserEdit::class)->name('edit')->middleware('permission:update-user');
+    });
 
     Route::prefix('roles')->name('roles.')->group(function () {
         Route::get('/', RoleIndex::class)->name('index')->middleware('permission:read-role');
