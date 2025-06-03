@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LogoutController;
 use App\Livewire\Auth\ForgotPassword;
 use App\Livewire\Auth\Login;
 use App\Livewire\Role\Index as RoleIndex;
@@ -18,6 +19,8 @@ Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard'); 
+
+    Route::post('/logout', [LogoutController::class, 'logout'])->name('logout');    
 
     Route::prefix('roles')->name('roles.')->group(function () {
         Route::get('/', RoleIndex::class)->name('index')->middleware('permission:read-role');
