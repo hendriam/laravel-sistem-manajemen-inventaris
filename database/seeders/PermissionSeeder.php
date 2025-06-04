@@ -20,6 +20,7 @@ class PermissionSeeder extends Seeder
             'create-asset', 'read-asset', 'update-asset', 'delete-asset',
             'profile-show', 'profile-edit',
             'create-category', 'read-category', 'update-category', 'delete-category',
+            'create-location', 'read-location', 'update-location', 'delete-location',
         ];
 
         foreach ($permissions as $name) {

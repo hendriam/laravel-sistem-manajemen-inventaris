@@ -19,6 +19,9 @@ use App\Livewire\Profile\Edit as ProfileEdit;
 use App\Livewire\Category\Index as CategoryIndex;
 use App\Livewire\Category\Create as CategoryCreate;
 use App\Livewire\Category\Edit as CategoryEdit;
+use App\Livewire\Location\Index as LocationIndex;
+use App\Livewire\Location\Create as LocationCreate;
+use App\Livewire\Location\Edit as LocationEdit;
 
 Route::get('/', Login::class)->name('login');
 Route::get('forgot-password', ForgotPassword::class)->name('forgot-password');
@@ -58,5 +61,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', CategoryIndex::class)->name('index')->middleware('permission:read-category');
         Route::get('/create', CategoryCreate::class)->name('create')->middleware('permission:create-category');
         Route::get('/{category}/edit', CategoryEdit::class)->name('edit')->middleware('permission:update-category');
+    });
+
+    Route::prefix('locations')->name('locations.')->group(function () {
+        Route::get('/', LocationIndex::class)->name('index')->middleware('permission:read-location');
+        Route::get('/create', LocationCreate::class)->name('create')->middleware('permission:create-location');
+        Route::get('/{location}/edit', LocationEdit::class)->name('edit')->middleware('permission:update-location');
     });
 });
