@@ -22,6 +22,9 @@ use App\Livewire\Category\Edit as CategoryEdit;
 use App\Livewire\Location\Index as LocationIndex;
 use App\Livewire\Location\Create as LocationCreate;
 use App\Livewire\Location\Edit as LocationEdit;
+use App\Livewire\Inventory\Index as InventoryIndex;
+use App\Livewire\Inventory\Create as InventoryCreate;
+use App\Livewire\Inventory\Edit as InventoryEdit;
 
 Route::get('/', Login::class)->name('login');
 Route::get('forgot-password', ForgotPassword::class)->name('forgot-password');
@@ -67,5 +70,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', LocationIndex::class)->name('index')->middleware('permission:read-location');
         Route::get('/create', LocationCreate::class)->name('create')->middleware('permission:create-location');
         Route::get('/{location}/edit', LocationEdit::class)->name('edit')->middleware('permission:update-location');
+    });
+
+    Route::prefix('inventories')->name('inventories.')->group(function () {
+        Route::get('/', InventoryIndex::class)->name('index')->middleware('permission:read-inventory');
+        Route::get('/create', InventoryCreate::class)->name('create')->middleware('permission:create-inventory');
+        Route::get('/{inventory}/edit', InventoryEdit::class)->name('edit')->middleware('permission:update-inventory');
     });
 });
