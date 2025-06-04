@@ -17,7 +17,7 @@ class PermissionSeeder extends Seeder
             'create-role', 'read-role', 'update-role', 'delete-role',
             'create-permission', 'read-permission', 'update-permission', 'delete-permission', 'assign-permission',
             'create-user', 'read-user', 'update-user', 'delete-user',
-            'create-asset', 'read-asset', 'update-asset', 'delete-asset',
+            'create-inventory', 'read-inventory', 'update-inventory', 'delete-inventory',
             'profile-show', 'profile-edit',
             'create-category', 'read-category', 'update-category', 'delete-category',
             'create-location', 'read-location', 'update-location', 'delete-location',
