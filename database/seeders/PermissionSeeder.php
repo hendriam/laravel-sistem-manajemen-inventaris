@@ -21,7 +21,7 @@ class PermissionSeeder extends Seeder
             'profile-show', 'profile-edit',
             'create-category', 'read-category', 'update-category', 'delete-category',
             'create-location', 'read-location', 'update-location', 'delete-location',
-            'create-transaction', 'read-transaction', 'update-transaction', 'delete-transaction',
+            'create-transaction-in', 'read-transaction-in', 'update-transaction-in', 'delete-transaction-in',
         ];
 
         foreach ($permissions as $name) {
