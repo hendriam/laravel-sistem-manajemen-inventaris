@@ -1,4 +1,4 @@
-@props(['type' => 'text', 'name', 'value', 'placeholder' => ''])
+@props(['type' => 'text', 'name', 'value' => '', 'placeholder' => ''])
 
 <input 
     type="{{ $type }}" 
