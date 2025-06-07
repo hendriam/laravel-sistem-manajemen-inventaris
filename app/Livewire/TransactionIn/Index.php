@@ -33,6 +33,7 @@ class Index extends Component
     public function render()
     {
         $transactions = Transaction::with(['createdBy', 'updatedBy'])
+            ->where('type', 'in')
             ->where('reference', 'like', "%{$this->search}%")
             ->orderBy($this->sortField, $this->sortDirection)
             ->paginate(10);
