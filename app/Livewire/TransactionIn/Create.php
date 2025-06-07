@@ -24,7 +24,7 @@ class Create extends Component
     public function mount()
     {
         $this->transaction_date = Carbon::now()->format('Y-m-d H:i');
-        $this->reference = 'TRX'.now()->format('Ymd'). ''.str_pad(Transaction::count() + 1, 4, '0', STR_PAD_LEFT);
+        $this->reference = 'TRXIN'.now()->format('Ymd'). ''.str_pad(Transaction::where('type', 'out')->count() + 1, 4, '0', STR_PAD_LEFT);
     }
 
     public function addItem()
