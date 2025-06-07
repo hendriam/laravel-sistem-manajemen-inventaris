@@ -72,7 +72,7 @@ class Create extends Component
                 $inventory = Inventory::findOrFail($item['inventory_id']);
 
                 $inventory->update([
-                    'quantity' => $inventory['quantity'] - $item['quantity'],
+                    'quantity' => $inventory['quantity'] + $item['quantity'],
                 ]);
             }
 
