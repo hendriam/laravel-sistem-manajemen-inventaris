@@ -54,11 +54,10 @@ class Create extends Component
         try {
             $second = Carbon::now()->format('s');
             $transaction = Transaction::create([
-                'transaction_type' => $this->transaction_type,
+                'type' => $this->transaction_type,
                 'reference' => $this->reference,
                 'transacted_at' => Carbon::parse($this->transaction_date.':'.$second),
                 'description' => $this->description,
-                'location_id' => $this->location_id,
                 'created_by' => Auth::id(),
             ]);
 
