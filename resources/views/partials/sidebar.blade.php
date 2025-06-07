@@ -68,7 +68,9 @@
 				</a>
 			</li>
 			@endhasPermission
+		</ul>
 
+		<ul class="pt-2 mt-2 space-y-2 border-t border-gray-200 dark:border-gray-700">
 			@hasPermission('read-category')
 			<li>
 				<a href="{{ route('categories.index') }}" class="flex items-center p-2 text-base font-medium text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700 {{ request()->routeIs('categories.*') ? 'bg-gray-100 dark:bg-gray-700' : '' }} group">
@@ -102,7 +104,6 @@
 			</li>
 			@endhasPermission
 		</ul>
-
 		<ul class="pt-2 mt-2 space-y-2 border-t border-gray-200 dark:border-gray-700">
 			@hasPermission('read-transaction-in')
 			<li>
