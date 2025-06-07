@@ -36,7 +36,7 @@
                     <td class="px-4 py-2 ">{{ $transaction->createdBy->name }}</td>
                     <td class="px-4 py-2 ">
                         <x-ui.button-actions 
-                            :deleteAction="'delete(' . $transaction->id . ')'"
+                            :urlShow="route('transaction-in.show', $transaction->id)"
                         />    
                     </td>
                 </tr>
