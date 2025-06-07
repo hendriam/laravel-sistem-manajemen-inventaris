@@ -34,7 +34,6 @@
             ['label' => 'Kode', 'field' => 'code'],
             ['label' => 'Nama', 'field' => 'name'],
             ['label' => 'Kategori', 'field' => 'category_id'],
-            ['label' => 'Lokasi', 'field' => 'location_id'],
             ['label' => 'Jumlah', 'field' => 'quantity'],
             ['label' => 'Satuan', 'field' => 'unit'],
             ['label' => 'Kondisi', 'field' => 'condition'],
@@ -48,7 +47,7 @@
                     <th class="px-4 py-2 font-medium text-gray-900 whitespace-nowrap dark:text-white">{{ $inventory->code }}</th>
                     <td class="px-4 py-2 ">{{ $inventory->name }}</td>
                     <td class="px-4 py-2 ">{{ $inventory->category->name }}</td>
-                    <td class="px-4 py-2 ">{{ $inventory->location->name }}</td>
+                    <!-- <td class="px-4 py-2 ">{{ $inventory->location->name }}</td> -->
                     <td class="px-4 py-2 ">{{ $inventory->quantity }}</td>
                     <td class="px-4 py-2 ">{{ $inventory->unit }}</td>
                     <td class="px-4 py-2 ">{{ $inventory->condition }}</td>

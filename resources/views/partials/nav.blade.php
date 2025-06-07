@@ -23,11 +23,11 @@
                 </svg>
                 <span class="sr-only">Toggle sidebar</span>
             </button>
-            <a href="https://flowbite.com" class="flex items-center justify-between mr-4">
+            <a href="{{route('dashboard')}}" class="flex items-center justify-between mr-4">
                 <img src="https://flowbite.s3.amazonaws.com/logo.svg" class="mr-3 h-8" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Flowbite</span>
+                <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">Sistem Manajemen Inventaris</span>
             </a>
-            <form action="#" method="GET" class="hidden md:block md:pl-2">
+            <!-- <form action="#" method="GET" class="hidden md:block md:pl-2">
                 <label for="topbar-search" class="sr-only">Search</label>
                 <div class="relative md:w-96">
                     <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
@@ -43,7 +43,7 @@
                         placeholder="Search"
                     />
                 </div>
-            </form>
+            </form> -->
         </div>
         <div class="flex items-center lg:order-2">
             <button
