@@ -28,6 +28,9 @@ use App\Livewire\Inventory\Edit as InventoryEdit;
 use App\Livewire\TransactionIn\Index as TransactionInIndex;
 use App\Livewire\TransactionIn\Create as TransactionInCreate;
 use App\Livewire\TransactionIn\Show as TransactionInShow;
+use App\Livewire\TransactionOut\Index as TransactionOutIndex;
+use App\Livewire\TransactionOut\Create as TransactionOutCreate;
+use App\Livewire\TransactionOut\Show as TransactionOutShow;
 
 Route::get('/', Login::class)->name('login');
 Route::get('forgot-password', ForgotPassword::class)->name('forgot-password');
@@ -85,5 +88,11 @@ Route::middleware(['auth'])->group(function () {
         Route::get('/', TransactionInIndex::class)->name('index')->middleware('permission:read-transaction-in');
         Route::get('/create', TransactionInCreate::class)->name('create')->middleware('permission:create-transaction-in');
         Route::get('/{id}/show', TransactionInShow::class)->name('show')->middleware('permission:show-transaction-in');
+    });
+
+    Route::prefix('transaction-out')->name('transaction-out.')->group(function () {
+        Route::get('/', TransactionOutIndex::class)->name('index')->middleware('permission:read-transaction-out');
+        Route::get('/create', TransactionOutCreate::class)->name('create')->middleware('permission:create-transaction-out');
+        Route::get('/{id}/show', TransactionOutShow::class)->name('show')->middleware('permission:show-transaction-out');
     });
 });
